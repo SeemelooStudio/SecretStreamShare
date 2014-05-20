@@ -19,6 +19,7 @@ define(function(require, exports, module) {
     initialize: function() {
         mainView = new MainView();        
         prepareView = new PrepareView();
+        startView = new StartView();
     },
     routes: {
       "": "index"
@@ -26,7 +27,7 @@ define(function(require, exports, module) {
 
     index: function() {
       console.log("Welcome to your / route.");
-      prepareView.render();
+      startView.render();
     }
   });
 });
