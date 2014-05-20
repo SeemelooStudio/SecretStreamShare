@@ -5,7 +5,10 @@ define(["jquery", "backbone", "utils"],
     
     var Post = Backbone.Model.extend({
         defaults:{
-            
+            "content":"狼厂这个点还加班，还有人性么！狼厂这个点还加班，还有人性么！",
+            "commentsCount":75,
+            "lovesCount":30,
+            "comments"：{}
         },
         initialize: function(){
             var data = Utils.getParameterByName("data", window.location.href);
