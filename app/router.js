@@ -14,12 +14,16 @@ define(function(require, exports, module) {
   var StartView = require("views/StartView");
   var startView;
 
+  var Post = require("models/Post");
+  var post;
+
   // Defining the application router.
   module.exports = Backbone.Router.extend({
     initialize: function() {
         mainView = new MainView();        
         prepareView = new PrepareView();
         startView = new StartView();
+        post = new Post();
     },
     routes: {
       "": "index"
