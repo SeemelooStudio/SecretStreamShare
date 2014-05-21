@@ -1,64 +1,58 @@
 <div class="container boxShadow">
     <a class="topBanner backgroundColor-Vanilla" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
         <div class="topBanner-content" >
-            来自原版秘密<small>——不要告诉别人哦</small>
+            唯恐天下不乱吗？用原版「Secret 秘密」吧。
         </div>
         <div class="logo-right">
             <img src="app/img/fox-right.png">
         </div>
     </a>
-    <div class="post backgroundColor-Skyfall">
-        <div class="post-mask backgroundMask-Disco insetShadow">
+    <div class="post backgroundColor-{{getRandomColor}}">
+        <div class="post-mask backgroundMask-{{getRandomMask}} insetShadow">
         </div>
         <div class="post-content">
-            狼厂这个点还加班，还有人性么！
+            {{content}} 
         </div>
         <div class="post-meta">
-            <div class="post-location">Los Angeles</div>
+            <div class="post-location">{{source}}</div>
             <div class="post-info">
-                <div class="post-commentsCount"><i class="icon-comment"></i>76</div>
-                <div class="post-lovesCount"><i class="icon-heart"></i>370</div>
+                <div class="post-commentsCount"><i class="icon-comment"></i>{{commentsCount}}</div>
+                <div class="post-lovesCount"><i class="icon-heart"></i>{{lovesCount}}</div>
             </div>
         </div>
     </div>
     <ul class="comments">
+        {{#comments}}
         <li class="comment clearfix">
             <div class="comment-col-1">
                 <div class="avatar">
-                    <div class="avatarBackground backgroundColor-Skyfall">
+                    <div class="avatarBackground backgroundColor-{{getRandomColorWithoutVanilla}}">
                     </div>
-                    <img src="app/img/secret/avatar-bird.png" />
+                    <img src="app/img/secret/avatar-{{getRandomIcon}}@2x.png" />
                 </div>
             </div>
             <div class="comment-col-2">
-                <div class="comment-content">You mean Faire</div>
+                <div class="comment-content">{{.}}</div>
             </div>
         </li>
-        <li class="comment clearfix">
-            <div class="comment-col-1">
-                <div class="avatar">
-                    <div class="avatarBackground backgroundColor-Cash">
-                    </div>
-                    <img src="app/img/secret/avatar-bird.png" />
-                </div>
-            </div>
-            <div class="comment-col-2">
-                <div class="comment-content">狼厂这个点还加班，还有人性么！狼厂这个点还加班，还有人性么！</div>
-            </div>
-        </li>
+        {{/comments}}
+        {{#isHidingComments}}
         <li class="comment comment-more clearfix">
             <div class="comment-col-1">
                 <div class="avatar">
                 </div>
             </div>
             <div class="comment-col-2">
-                <div class="comment-content">有5条评论被隐藏了...</div>
+                <div class="comment-content">有 {{hideCommentsCount}} 条评论被隐藏了...</div>
             </div>
         </li>
+        {{/isHidingComments}}
         <li class="comment-download clearfix">
-            <a class="" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
-                <img src="app/img/secret/logo-foxhole.png" />
-                <p>秘密——自由地说</p>
+            <a id="bottomBanner" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
+                <img id="foxhole" src="app/img/secret/logo-foxhole@2x.png" />
+                <p>下载「Secret 秘密」</p>
+                <img id="download" src="app/img/download.png" />
+                <br />
             </a>
             <div class="qrcode">
                 <img src="app/img/qrcode.png" />

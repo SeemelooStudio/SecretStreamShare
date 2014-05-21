@@ -16,13 +16,13 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             render: function () {
                 this.template = _.template(template, {});
-                this.$el.html(Mustache.render(this.template, {}));
+                this.$el.html(Mustache.render(this.template, this.model.toJSON() ));
                 
                 this.trigger("render");
                 return this;
             },
             postRender: function() {
-                
+                Utils.setPageTitle(this.model.get("content"));
             }
         });
         return StartView;

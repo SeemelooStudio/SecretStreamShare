@@ -62,16 +62,20 @@ var Utils = {
             $("title").html(title);
         }
     },
-    getParameterByName: function( name,href )
+    getParameterByName: function( name,href, isDecoded )
             {
               name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
               var regexS = "[\\?&]"+name+"=([^&#]*)";
               var regex = new RegExp( regexS );
               var results = regex.exec( href );
-              if( results === null )
-                return "";
-              else
-                return decodeURIComponent(results[1].replace(/\+/g, " "));
+              if( results === null ) {
+                  return "";
+              } else if( isDecoded ){
+                  return results[1];
+              } else {
+                  return decodeURIComponent(results[1].replace(/\+/g, " "));
+              }
+                
     },
     showError: function(errorMessage, title, callback ) {
         if ( errorMessage ) {
@@ -188,6 +192,15 @@ var Utils = {
             }
         }
         return feature; 
+    },
+    getRandomItemFromArray: function( repo ) {
+        var item, index;
+        if ( repo && repo.length > 0 ) {
+            index = Math.floor( Math.random() * repo.length );
+            return repo[index];
+        } else {
+            return null;
+        }
     }
 };
 

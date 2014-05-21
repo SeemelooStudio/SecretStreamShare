@@ -9,6 +9,7 @@ require.config({
     "backbone": "../../vendor/bower/backbone/backbone",
     "mustache": '../../vendor/bower/mustache/mustache',
     "text": "../../vendor/bower/text/text",
+    "base64":"../../vendor/bower/js-base64/base64.min",
     "animationscheduler":"../../vendor/animationScheduler",
     "utils":"../../vendor/utils"
   }

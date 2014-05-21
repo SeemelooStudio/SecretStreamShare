@@ -121,18 +121,18 @@ body {
     
 }
 .post-content {
-    font-size: 1.8em;
-    line-height: 1.5em;
+    font-size: 1.4em;
+    line-height: 1.2em;
     position: relative;
     width: 80%;
     margin: 0px auto;
     text-align: center;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
 
 }
 .post-meta {
-    font-size: 1.5em;
+    font-size: 1.2em;
     position: absolute;
     bottom: 0.5em;
     width: 100%;
@@ -255,16 +255,17 @@ body {
     width: 18px;
     height: 1.4em;
     vertical-align: top;
-    background: url(../../app/img/secret/icon-heart-fill.png) no-repeat center center;
+    background: url(../../app/img/secret/icon-heart-fill@2x.png) no-repeat center center;
+    background-size: 18px 18px;
     display: inline-block;
     margin-right: 10px;
 }
 .icon-comment {
-    background-image: url(../../app/img/secret/icon-comment-fill.png);
+    background-image: url(../../app/img/secret/icon-comment-fill@2x.png);
 }
 
 .topBanner {
-    height: 48px;
+    height: 64px;
     position: relative;
     display: block;
     
@@ -274,7 +275,7 @@ a {
     color: #444;
 }
 .topBanner-content {
-    line-height: 48px;
+    line-height: 64px;
     position: relative;
     
     color: #434343;
@@ -294,6 +295,13 @@ a {
    height: 98px;
    margin: 0 auto;
    border:1px solid #dedede;
+}
+#foxhole{
+    width: 48px;
+}
+#download {
+    width: 100px;
+    margin-bottom: 20px;
 }
 /*Cobalt Skyfall Aquamarine Olive Cash EmeraldSea Hopscotch Lavender Burst Cupid Peony Midnight  Vanilla */
 
@@ -355,11 +363,11 @@ a {
     background-color: #df6880;
 }
 .backgroundColor-Vanilla .icon-comment {
-    background-image: url(../../app/img/secret/icon-comment-collectible-gray.png);
+    background-image: url(../../app/img/secret/icon-comment-collectible-gray@2x.png);
 }
 
 .backgroundColor-Vanilla .icon-heart {
-    background-image: url(../../app/img/secret/icon-heart-collectible-gray.png);
+    background-image: url(../../app/img/secret/icon-heart-collectible-gray@2x.png);
 }
 /*Carbon Timber Disco  Haze Twilight Distressed Metal Tweed Grime Dream Denim Glow Plain Concrete */
 .backgroundMask-Carbon,
@@ -532,6 +540,16 @@ a {
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
+     .post-content {
+        font-size: 1.6em;
+        line-height: 1.5em;
+        padding-top: 4em;
+        padding-bottom: 4em;
+    
+    }
+    #download {
+        width: 160px;
+    }   
 }
 
 @media print,

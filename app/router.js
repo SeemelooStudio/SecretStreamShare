@@ -3,7 +3,6 @@ define(function(require, exports, module) {
 
   // External dependencies.
   var Backbone = require("backbone");
-  
   //views
   var MainView = require("views/MainView");
   var mainView;
@@ -22,8 +21,10 @@ define(function(require, exports, module) {
     initialize: function() {
         mainView = new MainView();        
         prepareView = new PrepareView();
-        startView = new StartView();
+        
         post = new Post();
+        startView = new StartView({model: post});
+        
     },
     routes: {
       "": "index"
