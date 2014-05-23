@@ -1,9 +1,9 @@
-<div class="container boxShadow">
-    <a class="topBanner backgroundColor-Vanilla" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
+<div class="container">
+    <a class="topBanner" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
         <div class="topBanner-content" >
-            唯恐天下不乱吗？用原版「Secret 秘密」吧。
+            唯恐天下不乱？<br /><small>用原版「秘密」</small>
         </div>
-        <div class="logo-right">
+        <div class="logo-right" data-entranceAnimation="fadeInRight">
             <img src="app/img/fox-right.png">
         </div>
     </a>
@@ -23,7 +23,7 @@
     </div>
     <ul class="comments">
         {{#comments}}
-        <li class="comment clearfix">
+        <li class="comment clearfix"  data-entranceAnimation="fadeInDown">
             <div class="comment-col-1">
                 <div class="avatar">
                     <div class="avatarBackground backgroundColor-{{getRandomColorWithoutVanilla}}">
@@ -36,28 +36,24 @@
             </div>
         </li>
         {{/comments}}
-        {{#isHidingComments}}
+        
         <li class="comment comment-more clearfix">
             <div class="comment-col-1">
                 <div class="avatar">
                 </div>
             </div>
             <div class="comment-col-2">
-                <div class="comment-content">有 {{hideCommentsCount}} 条评论被隐藏了...</div>
+                <div class="comment-content">{{#isHidingComments}}有 {{hideCommentsCount}} 条评论被隐藏了...<br />{{/isHidingComments}}下载「秘密」，看看朋友还说了什么</div>
             </div>
         </li>
-        {{/isHidingComments}}
-        <li class="comment-download clearfix">
-            <a id="bottomBanner" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
-                <img id="foxhole" src="app/img/secret/logo-foxhole@2x.png" />
-                <p>下载「Secret 秘密」</p>
-                <img id="download" src="app/img/download.png" />
-                <br />
-            </a>
-            <div class="qrcode">
-                <img src="app/img/qrcode.png" />
-            </div>
-            <div class="comment-download-footer "></div>
-        </li>
+        
     </ul>
+</div>
+
+<a id="btnLink" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>「秘密」，天机可以泄露<br><small>Available on the App Store</small>
+
+</a>
+
+<div class="qrcode"  data-entranceAnimation="fadeInDown">
+                <img src="http://secret.seemeloo.com/home/images/qrcode.png" />
 </div>

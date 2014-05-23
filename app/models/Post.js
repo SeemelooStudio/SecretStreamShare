@@ -27,7 +27,7 @@ define(["jquery", "backbone", "utils",'base64'],
                 return Utils.getRandomItemFromArray(ColorRepo);
             },
             "getRandomIcon": function(){
-                var IconRepo = ["bird", "bolt", "bone","bug","clove", "coffee", "droid","ghost", "heart", "icecream","jigsaw", "meow","outlet", "owl", "pinwheel","planet", "poo", "rocket","sallboat", "shirt","skull", "spade", "star","wine"];
+                var IconRepo = ["bird", "bolt", "bone","bug","clove", "coffee", "droid","ghost", "heart", "icecream","jigsaw", "meow","outlet", "owl", "pinwheel","planet", "poo", "rocket","sailboat", "shirt","skull", "spade", "star","wine"];
 
                 return Utils.getRandomItemFromArray(IconRepo);
             }

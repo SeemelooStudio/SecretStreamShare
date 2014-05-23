@@ -100,12 +100,19 @@ textarea {
 ::selection {
     background: none;
 }
-
+html {
+    width: 100%;
+    height: 100%;
+}
 body {
-    background: url(../../app/img/background.jpg) center top;
+    background: url(../../app/img/secretbg.jpg) center top;
     text-align: center;
-    font-family: 'Open Sans Condensed',"Microsoft Yahei", sans-serif;
+    font-family: 'open_sanscondensed_light',"Microsoft Yahei", sans-serif;
     font-size: 14px;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    color: #444;
 }
 .container {
     width: 100%;
@@ -121,8 +128,8 @@ body {
     
 }
 .post-content {
-    font-size: 1.4em;
-    line-height: 1.2em;
+    font-size: 1.3em;
+    line-height: 1.4em;
     position: relative;
     width: 80%;
     margin: 0px auto;
@@ -144,6 +151,7 @@ body {
     width: 44%;
     text-align: left;
     padding-left: 5%;
+    font-size: 14px;
     
 }
 .post-info {
@@ -168,8 +176,9 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    background-size: 100% 100%;
-    opacity: 0.6;
+    background-size: 120% 120%;
+    background-position: -10% -10%;
+    opacity: 0.5;
     
 }
 .insetShadow {
@@ -186,6 +195,9 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+.comments {
+    margin-bottom: 30px;
 }
 .comment {
     background: #fafafa;
@@ -221,8 +233,8 @@ body {
 }
 .comment-content {
     text-align: left;
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 1em;
+    line-height: 1.4em;
     padding: 2px 0;
 }
 .comment-more {
@@ -243,7 +255,7 @@ body {
     border-radius: 18px;
     left: 0;
     top: 0;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 .avatar img {
     width: 100%;
@@ -268,6 +280,8 @@ body {
     height: 64px;
     position: relative;
     display: block;
+    width: 100%;
+    text-align: center;
     
 }
 a {
@@ -275,19 +289,18 @@ a {
     color: #444;
 }
 .topBanner-content {
-    line-height: 64px;
+    line-height: 16px;
     position: relative;
-    
+    padding-top:18px;
     color: #434343;
 }
 .topBanner img {
-    max-width: 100%;
-    max-height: 100%;
+    max-height: 80%;
 }
 .logo-right {
     position: absolute;
     right: 0;
-    top:0;
+    top:10%;
 }
 .qrcode {
 
@@ -295,6 +308,7 @@ a {
    height: 98px;
    margin: 0 auto;
    border:1px solid #dedede;
+   margin-bottom: 40px;
 }
 #foxhole{
     width: 48px;
@@ -302,6 +316,47 @@ a {
 #download {
     width: 100px;
     margin-bottom: 20px;
+}
+#btnLink {
+    position: relative;
+    background-image: url(../../app/img/apple.png);
+    background-size: 24px 30px;
+    background-position: 16px center;
+    background-repeat: no-repeat;
+}
+#btnLink-fox {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    height: 100%;
+}
+.btn {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #FFF;
+    border-radius: 5px;
+}
+.btn-block {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.qrcode {
+
+   width: 140px;
+   height: 140px;
+   margin: 0 auto;
+   border:1px solid #dedede;
+   margin-bottom: 40px;
+}
+.qrcode img {
+    width: 100%;
+    height: 100%;
+}
+.container,.comment-download{
+    border-radius: 0 0 10px 10px;
 }
 /*Cobalt Skyfall Aquamarine Olive Cash EmeraldSea Hopscotch Lavender Burst Cupid Peony Midnight  Vanilla */
 
@@ -318,7 +373,7 @@ a {
 .backgroundColor-Peony,
 .backgroundColor-Midnight
  {
-    background-color: #434343;
+    background-color: #34302b;
     color: #FFF;
 }
 .backgroundColor-Vanilla {
@@ -327,40 +382,37 @@ a {
 }
 
 .backgroundColor-Cobalt {
-    background-color: #0047AB;
+    background-color: #4a5083;
 }
 .backgroundColor-Skyfall {
-    background-color: #00bfff;
+    background-color: #4790cd;
 }
 .backgroundColor-Aquamarine {
     background-color: #66ddaa;
 }
 .backgroundColor-Olive {
-    background-color: #808000;
+    background-color: #959f45;
 }
 .backgroundColor-Cash {
-    background-color: #556b2f;
+    background-color: #536c2e;
 }
 .backgroundColor-EmeraldSea {
-    background-color: #0abab5;
+    background-color: #009586;
 }
 .backgroundColor-Hopscotch {
-    background-color: #b19cd9;
+    background-color: #ae80c4;
 }
 .backgroundColor-Lavender {
-    background-color: #734f96;
+    background-color: #7950a1;
 }
 .backgroundColor-Burst {
-    background-color: #e9692c;
-}
-.backgroundColor-Burst {
-    background-color: #e9692c;
+    background-color: #df780a;
 }
 .backgroundColor-Cupid {
-    background-color: #ae3532;
+    background-color: #af3031;
 }
 .backgroundColor-Peony{
-    background-color: #df6880;
+    background-color: #e66177;
 }
 .backgroundColor-Vanilla .icon-comment {
     background-image: url(../../app/img/secret/icon-comment-collectible-gray@2x.png);

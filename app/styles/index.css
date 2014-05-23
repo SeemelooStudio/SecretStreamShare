@@ -2,6 +2,7 @@
 
 @import "../../vendor/bower/html5-boilerplate/css/normalize.css";
 @import "animate.css";
+@import "../../vendor/fonts/opensanscondensed.css";
 @import "main.css";
 
 /*-- Application stylesheets. -----------------------------------------------*/
