@@ -20,18 +20,16 @@ define(function(require, exports, module) {
   module.exports = Backbone.Router.extend({
     initialize: function() {
         mainView = new MainView();        
-        prepareView = new PrepareView();
-        
-        post = new Post();
-        startView = new StartView({model: post});
-        
+        prepareView = new PrepareView();        
     },
     routes: {
-      "": "index"
+      "": "index",
+      "*action": "index"
     },
 
     index: function() {
-      startView.render();
+      post = new Post();
+      startView = new StartView({model: post});
     }
   });
 });

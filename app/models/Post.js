@@ -11,6 +11,7 @@ define(["jquery", "backbone", "utils",'base64'],
             "hideCommentsCount":0,
             "isHidingComments":false,
             "source":"你的朋友",
+            "hasImage":false,
             "getRandomMask": function(){
                 var MaskRepo = ["Carbon", "Timber", "Disco","Haze","Twilight", "Distressed", "Metal","Tweed", "Grime", "Dream","Denim", "Glow","Plain", "Concrete"];
 
@@ -33,9 +34,10 @@ define(["jquery", "backbone", "utils",'base64'],
             }
         },
         initialize: function(){
-            
+            this.isParseSucceed = false;
             //get data from query string
             var data = Utils.getParameterByName("data", window.location.href, true);
+            
             var jsonData;
             if ( data ) {
                 try {
@@ -48,6 +50,13 @@ define(["jquery", "backbone", "utils",'base64'],
                         "lovesCount": jsonData.LikeCount,
                         "comments":jsonData.Comments
                     });
+                    
+                    if ( jsonData.ImageUrl && jsonData.ImageUrl !== "" ) {
+                        this.set({
+                        "imageUrl":jsonData.ImageUrl,
+                        "hasImage":true
+                        });
+                    }
                     
                     var hideCommentsCount = this.get("commentsCount") - this.get("comments").length;
                     
@@ -63,10 +72,18 @@ define(["jquery", "backbone", "utils",'base64'],
                         });
                     }
                     
+                    this.trigger("parseSuccess");
+                    this.isParseSucceed = true;
+                    
                 } catch(e) {
                     //error
                     console.log(e);
+                    this.trigger("parseSuccess");
+                    this.isParseSucceed = true;
                 }
+            } else {
+                this.trigger("parseSuccess");
+                this.isParseSucceed = true;
             }
             
         },

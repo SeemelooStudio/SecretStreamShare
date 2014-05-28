@@ -9,10 +9,33 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             
             initialize: function (options) {
                 this.listenTo(this, "render", this.postRender);
-                this.render();
+                if ( this.model.isParseSucceed ) {
+                    this.onModelParseSuccess();
+                } else {
+                    this.listenTo(this.model, "parseSuccess", this.onModelParseSuccess);
+                }
+                
+                
             },
             events: {
 
+            },
+            onModelParseSuccess: function(){
+                var self = this;
+                if ( this.model.get("hasImage") ) {
+                    var img = new Image();
+                    img.onerror = function (err) {
+                        this.model.set("hasImage",false);
+                        self.render();
+                    };
+                    img.onload = function(evt){
+                        self.render();
+                    };
+                    img.src = this.model.get("imageUrl");                    
+                
+                } else {
+                    this.render();
+                }
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -23,6 +46,12 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             postRender: function() {
                 Utils.setPageTitle(this.model.get("content"));
+                var self = this;
+                this.backgroundMarginTop = 0 - $(".post").width() * 0.6;
+                $(".postBackground").css ({
+                  "margin-top": this.backgroundMarginTop,
+                  "margin-left": self.backgroundMarginTop
+                });
                 
                 var postHeight = $('.post').height();
                 var contentHeight = $('.post-content').height();
@@ -50,8 +79,12 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 
                 if (window.DeviceOrientationEvent) {
                     window.addEventListener('deviceorientation', function(eventData){
-                        $(".post-mask").css ({
-                          "background-position-y": eventData.beta - 90
+                        var distanceBeta = eventData.beta * 0.4;
+                        var distanceGamma = event.gamma * 0.4;
+ 
+                        $(".postBackground").css ({
+                          "margin-top":  self.backgroundMarginTop + distanceBeta,
+                          "margin-left": self.backgroundMarginTop + distanceGamma
                         });
                     
                     }, false);

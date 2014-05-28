@@ -7,9 +7,22 @@
             <img src="app/img/fox-right.png">
         </div>
     </a>
-    <div class="post backgroundColor-{{getRandomColor}}">
+    {{^hasImage}}
+        <div class="post backgroundColor-{{getRandomColor}}">
+    {{/hasImage}}
+    {{#hasImage}}
+        <div class="post backgroundColor-Midnight">
+    {{/hasImage}}
+    
+        {{^hasImage}}
         <div class="post-mask backgroundMask-{{getRandomMask}} insetShadow">
         </div>
+        {{/hasImage}}
+        {{#hasImage}}
+        <div class="post-mask backgroundMask-Custom insetShadow">
+            <img class="postBackground" src="{{imageUrl}}" />
+        </div>
+        {{/hasImage}}
         <div class="post-content">
             {{content}} 
         </div>
@@ -53,7 +66,3 @@
 <a id="btnLink" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>「秘密」，天机可以泄露<br><small>Available on the App Store</small>
 
 </a>
-
-<div class="qrcode"  data-entranceAnimation="fadeInDown">
-                <img src="http://secret.seemeloo.com/home/images/qrcode.png" />
-</div>
