@@ -31,7 +31,6 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-      console.log("Welcome to your / route.");
       startView.render();
     }
   });

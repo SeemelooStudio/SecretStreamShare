@@ -16,7 +16,6 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             render: function () {
                 this.template = _.template(template, {});
-                console.log(this.model.toJSON());
                 this.$el.html(Mustache.render(this.template, this.model.toJSON() ));
                 
                 this.trigger("render");
