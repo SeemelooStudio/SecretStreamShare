@@ -18,10 +18,11 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 
             },
             events: {
-
+                "click #btnLink": "showDownloadTips"
             },
             onModelParseSuccess: function(){
                 var self = this;
+                /*
                 if ( this.model.get("hasImage") ) {
                     var img = new Image();
                     img.onerror = function (err) {
@@ -36,6 +37,8 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 } else {
                     this.render();
                 }
+                */
+                this.render();
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -89,6 +92,40 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                     
                     }, false);
                 }
+
+            },
+            showDownloadTips: function(ev) {
+                
+                if ( Utils.isWechat() ) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    $("#main").addClass("blur");
+                    $("#downloadOverlay").fadeIn().click(function(){
+                        $("#main").removeClass("blur");
+                        $("#downloadOverlay").fadeOut();
+                        Backbone.history.navigate("", { trigger: false, replace: true });
+                    });
+                    
+                    Backbone.history.navigate("download", { trigger: false, replace: true });
+                }
+                _hmt.push(['_trackEvent', 'download', 'click', 'Timeline']);
+            },
+            shareFriend: function () {
+                var self = this;
+                WeixinJSBridge.invoke('sendAppMessage',{
+                    "desc": self.model.get("content"),
+                    "title": "分享一个不得不说的秘密"
+                }, function(res) {
+                });
+            },
+            shareTimeline:function() {
+                var self = this;
+                WeixinJSBridge.invoke('shareTimeline',{
+                    "desc": self.model.get("content"),
+                    "title": "分享一个不得不说的秘密"
+                }, function(res) {
+                       //_report('timeline', res.err_msg);
+                });
             }
         });
         return StartView;

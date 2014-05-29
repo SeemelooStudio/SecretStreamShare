@@ -24,12 +24,21 @@ define(function(require, exports, module) {
     },
     routes: {
       "": "index",
+      "download":"download",
       "*action": "index"
     },
 
     index: function() {
       post = new Post();
       startView = new StartView({model: post});
+    },
+    download: function() {
+        if ( Utils.isWechat() ) {
+            Backbone.history.navigate("", { trigger: true, replace: true });
+        } else {
+            window.location.href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8";
+        }
+        
     }
   });
 });
