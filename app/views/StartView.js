@@ -75,7 +75,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                     this.$el.find(".logo-right,.post,.comment,.comment-download,#btnLink,.qrcode"),
                     {
                         "isSequential":true,
-                        "sequentialDelay":1000
+                        "sequentialDelay":500
                     }
                 );
                 this.animationScheduler.animateIn();
@@ -100,13 +100,15 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                     ev.preventDefault();
                     ev.stopPropagation();
                     $("#main").addClass("blur");
-                    $("#downloadOverlay").fadeIn().click(function(){
+                    $("#downloadOverlay").fadeIn();
+                    Backbone.history.navigate("download", { trigger: false, replace: true });
+                    $("#downloadOverlay").click(function(){
                         $("#main").removeClass("blur");
                         $("#downloadOverlay").fadeOut();
                         Backbone.history.navigate("", { trigger: false, replace: true });
                     });
                     
-                    Backbone.history.navigate("download", { trigger: false, replace: true });
+                    
                 }
                 _hmt.push(['_trackEvent', 'download', 'click', 'Timeline']);
             },

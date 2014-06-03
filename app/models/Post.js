@@ -86,6 +86,12 @@ define(["jquery", "backbone", "utils",'base64'],
                 this.isParseSucceed = true;
             }
             
+            shareInfo.desc = this.get("content");
+            if ( this.get("hasImage") ) {
+                shareInfo.img_url = this.get("imageUrl");
+            }
+            
+            
         },
         getRandomAvatar: function() {
             return "a";   
