@@ -18,7 +18,6 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 
             },
             events: {
-                "click #btnLink": "showDownloadTips"
             },
             onModelParseSuccess: function(){
                 var self = this;
